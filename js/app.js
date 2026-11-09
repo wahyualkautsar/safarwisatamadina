@@ -186,7 +186,7 @@ function loadBoot() {
 function bootFromServer() {
   if (!HAS_API) {
     // Mode demo: GAS_URL belum diisi → pakai data contoh agar tampilan bisa dicek
-    const s = document.createElement('script'); s.src = 'js/demo-data.js';
+    const s = document.createElement('script'); s.src = 'js/demo-data.js?v=20261109b';
     s.onload = () => { applyFreshPublic(window.DEMO_DATA || {}); showDemoRibbon(); };
     s.onerror = () => { S.pubLoading = false; applyFreshPublic({}); showDemoRibbon(); };
     document.head.appendChild(s);
