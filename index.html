@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Travel Umrah & Haji resmi berizin PPIU Kemenag. Jadwal keberangkatan transparan, hotel dekat Haramain, konsultasi gratis via WhatsApp.">
+  <title>PT. Safar Wisata Madina — Umrah & Haji</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="preconnect" href="https://script.googleusercontent.com" crossorigin>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PT. Safar Wisata Madina — Umrah & Haji Resmi PPIU Kemenag">
+  <meta property="og:description" content="Jadwal keberangkatan transparan, hotel dekat Haramain, bimbingan sesuai sunnah. Konsultasi gratis via WhatsApp.">
+  <meta name="theme-color" content="#0A3D73">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- DETEKTOR ERROR: harus dimuat paling awal, menangkap error apa pun (termasuk kode yang terpotong) -->
+  <script>
+    (function () {
+      function banner(msg) {
+        var show = function () {
+          var b = document.getElementById('swmErr');
+          if (!b) {
+            b = document.createElement('div'); b.id = 'swmErr';
+            b.style.cssText = 'position:fixed;left:8px;right:8px;bottom:8px;z-index:99999;background:#B91C1C;color:#fff;font:13px/1.5 monospace;padding:10px 12px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.3);white-space:pre-wrap;max-height:40vh;overflow:auto';
+            b.onclick = function () { b.remove(); };
+            document.body.appendChild(b);
+          }
+          b.textContent = (b.textContent ? b.textContent + '\n' : '⚠️ ERROR (screenshot & kirim ke developer, ketuk untuk tutup)\n') + msg;
+        };
+        document.body ? show() : document.addEventListener('DOMContentLoaded', show);
+      }
+      window.__swmBanner = banner;
+      window.onerror = function (m, src, line, col) { banner(m + ' — baris ' + line + ':' + col); };
+      window.addEventListener('load', function () {
+        if (typeof GAS_URL === 'undefined') banner('File js/config.js tidak ditemukan (404). Pastikan folder js/ ikut ter-upload ke GitHub dengan struktur utuh.');
+        else if (typeof window.go !== 'function' || typeof window.openAdmin !== 'function') {
+          banner('File js/app.js atau js/admin.js gagal dimuat (404). Cek di GitHub: harus ada folder js/ berisi config.js, api.js, app.js, admin.js — bukan file rata di root.');
+        }
+      });
+    })();
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Konfigurasi URL backend (GAS) — WAJIB diisi di js/config.js -->
+  <script src="js/config.js"></script>
+  <script>
+    // Ambil data SEDINI MUNGKIN, paralel dengan download CSS/JS → halaman tampil lebih cepat
+    window.__BOOT_PROMISE__ = (typeof GAS_URL === 'string' && /^https:\/\/script\.google\.com\/macros\/s\/.+\/exec/.test(GAS_URL.trim()))
+      ? fetch(GAS_URL.trim() + '?action=getPublicData').then(function (r) { return r.json(); }).catch(function (e) { return { success: false, message: e.message }; })
+      : null;
+  </script>
+</head>
+<body>
+
+
+<a class="skip-link" href="javascript:void(0)" onclick="document.getElementById('main').focus()">Lewati ke konten</a>
+
+<!-- ═══════════════════════════ APLIKASI PUBLIK ═══════════════════════════ -->
+<div id="publicApp">
+
+  <!-- Bar legalitas -->
+  <div class="legal-bar">
+    <div class="container-xl d-flex align-items-center justify-content-between gap-2">
+      <div class="d-flex align-items-center gap-2 text-truncate">
+        <span class="pill pill-emerald"><i class="bi bi-patch-check-fill"></i> Resmi</span>
+        <span class="text-truncate">Terakreditasi Kemenag RI • PPIU No. <b class="tnum" data-cfg="Nomor_PPIU"></b></span>
+      </div>
+      <div class="d-none d-md-flex align-items-center gap-3">
+        <span><i class="bi bi-clock"></i> <span data-cfg="Jam_Operasional"></span></span>
+        <span><i class="bi bi-telephone"></i> <span data-cfg="Telepon"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="site-nav" id="siteNav">
+    <div class="container-xl d-flex align-items-center gap-3">
+      <a href="javascript:void(0)" class="brand" onclick="go('home')" aria-label="Beranda">
+        <span class="brand-mark" id="brandMark"><i class="bi bi-moon-stars-fill"></i></span>
+        <span class="brand-text">
+          <b data-cfg="Nama_Singkat">SAFAR WISATA</b>
+          <small data-cfg="Sub_Nama">MADINA HARAMAIN</small>
+        </span>
+      </a>
+
+      <nav class="main-menu d-none d-xl-flex" aria-label="Menu utama">
+        <a href="javascript:void(0)" data-nav="home" onclick="go('home')">Beranda</a>
+        <a href="javascript:void(0)" data-nav="katalog" onclick="go('katalog',{jenisGroup:'Umrah'})">Paket Umrah</a>
+        <a href="javascript:void(0)" data-nav="haji" onclick="go('katalog',{jenisGroup:'Haji'})">Haji Khusus</a>
+        <a href="javascript:void(0)" data-nav="jadwal" onclick="go('jadwal')">Jadwal</a>
+        <a href="javascript:void(0)" data-nav="dokumentasi" onclick="go('dokumentasi')">Dokumentasi</a>
+        <a href="javascript:void(0)" data-nav="testimoni" onclick="go('testimoni')">Testimoni</a>
+        <a href="javascript:void(0)" data-nav="blog" onclick="go('blog')">Artikel</a>
+        <a href="javascript:void(0)" data-nav="faq" onclick="go('faq')">FAQ</a>
+      </nav>
+
+      <div class="ms-auto d-flex align-items-center gap-2">
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Ganti mode gelap/terang"><i class="bi bi-moon"></i></button>
+        <button class="btn btn-ghost btn-sm d-none d-xl-inline-flex" onclick="openAdmin()" aria-label="Portal Admin" title="Portal Admin"><i class="bi bi-person-lock"></i><span class="d-none d-xxl-inline"> Portal Admin</span></button>
+        <button class="btn btn-wa btn-sm d-none d-sm-inline-flex" onclick="openLead('', 'Navbar')"><i class="bi bi-whatsapp"></i> Konsultasi Gratis</button>
+        <button class="icon-btn d-xl-none" onclick="toggleMobileMenu(true)" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu mobile (drawer) -->
+  <div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleMobileMenu(false)"></div>
+  <aside class="drawer" id="mobileDrawer" aria-label="Menu mobile">
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <b>Menu</b>
+      <button class="icon-btn" onclick="toggleMobileMenu(false)" aria-label="Tutup menu"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <a href="javascript:void(0)" data-nav="home" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a>
+    <a href="javascript:void(0)" data-nav="katalog" onclick="go('katalog',{jenisGroup:'Umrah'})"><i class="bi bi-airplane"></i> Paket Umrah</a>
+    <a href="javascript:void(0)" data-nav="haji" onclick="go('katalog',{jenisGroup:'Haji'})"><i class="bi bi-stars"></i> Haji Khusus</a>
+    <a href="javascript:void(0)" data-nav="jadwal" onclick="go('jadwal')"><i class="bi bi-calendar3"></i> Jadwal Keberangkatan</a>
+    <a href="javascript:void(0)" data-nav="dokumentasi" onclick="go('dokumentasi')"><i class="bi bi-play-btn"></i> Dokumentasi Video</a>
+    <a href="javascript:void(0)" data-nav="testimoni" onclick="go('testimoni')"><i class="bi bi-chat-quote"></i> Testimoni</a>
+    <a href="javascript:void(0)" data-nav="blog" onclick="go('blog')"><i class="bi bi-journal-text"></i> Artikel</a>
+    <a href="javascript:void(0)" data-nav="faq" onclick="go('faq')"><i class="bi bi-question-circle"></i> FAQ</a>
+    <hr>
+    <button class="btn btn-wa w-100 mb-2" onclick="toggleMobileMenu(false);openLead('', 'Menu Mobile')"><i class="bi bi-whatsapp"></i> Konsultasi Gratis</button>
+    <button class="btn btn-ghost w-100" onclick="toggleMobileMenu(false);openAdmin()"><i class="bi bi-person-lock"></i> Portal Admin</button>
+  </aside>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ─────────────── HALAMAN: BERANDA ─────────────── -->
+    <section class="page active" id="page-home">
+
+      <!-- Hero -->
+      <!-- Teks berjalan legalitas (isi dari Pengaturan → Teks_Berjalan) -->
+      <div class="ticker" aria-label="Informasi legalitas">
+        <div class="ticker-track" id="tickerTrack"></div>
+      </div>
+
+      <div class="hero" id="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-video" id="heroVideo" aria-hidden="true"></div>
+        <div class="container-xl hero-inner">
+          <span class="pill pill-glass"><i class="bi bi-shield-check"></i> Biro Perjalanan Ibadah Resmi • PPIU <span class="tnum" data-cfg="Nomor_PPIU"></span></span>
+          <h1 class="hero-title" id="heroTitle">Sahabat Perjalanan Ibadah Suci Anda ke <span>Tanah Suci</span></h1>
+          <p class="hero-sub" data-cfg="Deskripsi_Hero"></p>
+          <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <button class="btn btn-wa btn-lg" onclick="openLead('', 'Hero')"><i class="bi bi-whatsapp"></i> Konsultasi Gratis</button>
+            <button class="btn btn-glass btn-lg" onclick="go('jadwal')"><i class="bi bi-calendar3"></i> Lihat Jadwal 2026/2027</button>
+          </div>
+          <div class="hero-points">
+            <span><i class="bi bi-check-circle-fill"></i> Garansi Pasti Berangkat</span>
+            <span><i class="bi bi-check-circle-fill"></i> Bimbingan Sesuai Sunnah</span>
+            <span><i class="bi bi-check-circle-fill"></i> Tiket & Visa Terkonfirmasi</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Statistik kepercayaan -->
+      <div class="container-xl">
+        <div class="stats-dock">
+          <div class="stat"><i class="bi bi-award"></i><div><b class="tnum" data-cfg="Statistik_Tahun_Beroperasi"></b><small>Tahun terpercaya melayani jamaah</small></div></div>
+          <div class="stat"><i class="bi bi-people"></i><div><b class="tnum" data-cfg="Statistik_Jumlah_Jamaah"></b><small>Jamaah telah diberangkatkan</small></div></div>
+          <div class="stat"><i class="bi bi-passport"></i><div><b class="tnum" data-cfg="Statistik_Visa"></b><small>Visa tanah suci diterbitkan</small></div></div>
+          <div class="stat"><i class="bi bi-emoji-smile"></i><div><b class="tnum" data-cfg="Statistik_Kepuasan"></b><small>Tingkat kepuasan jamaah</small></div></div>
+        </div>
+      </div>
+
+      <!-- Mengapa memilih kami -->
+      <div class="section">
+        <div class="container-xl">
+          <div class="section-head">
+            <span class="eyebrow">Keunggulan Utama Kami</span>
+            <h2>Mengapa Memilih <span data-cfg="Nama_Perusahaan">Kami</span>?</h2>
+            <p>Kami menyiapkan setiap detail perjalanan agar ibadah Anda nyaman, tenang, dan berkah — dari pendaftaran hingga kembali ke tanah air.</p>
+          </div>
+          <div class="row g-3 g-lg-4">
+            <div class="col-sm-6 col-lg-3"><div class="feature"><span class="feature-ic"><i class="bi bi-shield-check"></i></span><h3>Legalitas & Pasti Berangkat</h3><p>Berizin resmi PPIU Kemenag RI dengan tiket, visa, dan hotel yang terkonfirmasi sebelum manasik.</p><span class="pill pill-emerald"><i class="bi bi-patch-check"></i> Terverifikasi Siskopatuh</span></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="feature"><span class="feature-ic"><i class="bi bi-book"></i></span><h3>Bimbingan Sunnah & Asatidz</h3><p>Didampingi pembimbing lulusan Timur Tengah dan muthawwif berpengalaman selama di Tanah Suci.</p><span class="pill pill-blue"><i class="bi bi-headset"></i> Audio receiver manasik</span></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="feature"><span class="feature-ic"><i class="bi bi-building"></i></span><h3>Hotel Ring 1 Dekat Masjid</h3><p>Pilihan hotel bintang 4–5 di pelataran Masjidil Haram dan Masjid Nabawi — hemat tenaga untuk ibadah.</p><span class="pill pill-gold"><i class="bi bi-star-fill"></i> Jarak ± 50–300 m</span></div></div>
+            <div class="col-sm-6 col-lg-3"><div class="feature"><span class="feature-ic"><i class="bi bi-cash-coin"></i></span><h3>Harga Transparan</h3><p>Rincian biaya jelas sejak awal, tanpa biaya tersembunyi. Pembayaran hanya ke rekening resmi perusahaan.</p><span class="pill pill-emerald"><i class="bi bi-bank"></i> Rekening atas nama PT</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jadwal keberangkatan (ringkas) -->
+      <div class="section section-tint">
+        <div class="container-xl">
+          <div class="section-head">
+            <span class="eyebrow">Musim 1448 H</span>
+            <h2>Jadwal Keberangkatan Umrah & Haji</h2>
+            <p>Daftar jadwal resmi yang selalu diperbarui. Status kursi ditampilkan langsung dari data operasional kami.</p>
+          </div>
+          <div class="card-x p-0 overflow-hidden">
+            <div class="table-wrap"><table class="table-x" id="homeScheduleTable"></table></div>
+          </div>
+          <div class="text-center mt-3">
+            <button class="btn btn-outline-brand" onclick="go('jadwal')">Lihat Semua Jadwal <i class="bi bi-arrow-right"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pencarian paket -->
+      <div class="section">
+        <div class="container-xl">
+          <div class="search-panel">
+            <div class="search-tabs" role="tablist">
+              <button class="active" data-stab="Umrah" onclick="setSearchTab('Umrah')"><i class="bi bi-airplane"></i> Paket Umrah</button>
+              <button data-stab="Haji" onclick="setSearchTab('Haji')"><i class="bi bi-stars"></i> Paket Haji</button>
+            </div>
+            <h3 class="mb-3" id="searchTitle">Cari Paket Umrah Terbaik</h3>
+            <div class="row g-2 align-items-end">
+              <div class="col-6 col-lg"><label class="form-label" for="hsBulan">Keberangkatan</label><select class="form-select" id="hsBulan"></select></div>
+              <div class="col-6 col-lg"><label class="form-label" for="hsJenis">Jenis Paket</label><select class="form-select" id="hsJenis"></select></div>
+              <div class="col-6 col-lg"><label class="form-label" for="hsMaskapai">Maskapai</label><select class="form-select" id="hsMaskapai"></select></div>
+              <div class="col-6 col-lg"><label class="form-label" for="hsKota">Kota Keberangkatan</label><select class="form-select" id="hsKota"></select></div>
+              <div class="col-12 col-lg-auto"><button class="btn btn-brand w-100" onclick="runHomeSearch()"><i class="bi bi-search"></i> Cari Paket</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paket favorit -->
+      <div class="section pt-0">
+        <div class="container-xl">
+          <div class="section-head section-head-row">
+            <div><span class="eyebrow">Umrah Favorit</span><h2>Paket Umrah Pilihan Jamaah</h2></div>
+            <button class="btn btn-outline-brand btn-sm" onclick="go('katalog',{jenisGroup:'Umrah'})">Lihat Semua <i class="bi bi-arrow-right"></i></button>
+          </div>
+          <div class="row g-3 g-lg-4" id="favUmrah"></div>
+
+          <div class="section-head section-head-row mt-5">
+            <div><span class="eyebrow">Haji Favorit</span><h2>Paket Haji Khusus & Furoda</h2></div>
+            <button class="btn btn-outline-brand btn-sm" onclick="go('katalog',{jenisGroup:'Haji'})">Lihat Semua <i class="bi bi-arrow-right"></i></button>
+          </div>
+          <div class="row g-3 g-lg-4" id="favHaji"></div>
+        </div>
+      </div>
+
+      <!-- Form konsultasi cepat -->
+      <div class="section section-dark">
+        <div class="container-xl">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+              <span class="eyebrow eyebrow-light">Pendaftaran Cepat</span>
+              <h2 class="text-white mt-2">Konsultasi & Booking Jadwal</h2>
+              <p class="text-white-75">Isi formulir singkat ini, CS resmi kami langsung terhubung dengan Anda via WhatsApp — lengkap dengan paket dan rencana keberangkatan yang Anda pilih.</p>
+              <ul class="check-list">
+                <li><i class="bi bi-check2-circle"></i> Gratis, tanpa kewajiban mendaftar</li>
+                <li><i class="bi bi-check2-circle"></i> Simulasi biaya Quad / Triple / Double</li>
+                <li><i class="bi bi-check2-circle"></i> Booklet panduan manasik gratis</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <form class="lead-card" id="homeLeadForm" onsubmit="submitLeadForm(event, this, 'Landing')" novalidate>
+                <div class="mb-3"><label class="form-label" for="hlNama">Nama Lengkap *</label><input class="form-control" id="hlNama" name="Nama" required minlength="2" maxlength="80" autocomplete="name" placeholder="Contoh: Ahmad Fauzi"><div class="invalid-feedback">Nama wajib diisi.</div></div>
+                <div class="mb-3"><label class="form-label" for="hlWa">Nomor WhatsApp *</label><input class="form-control tnum" id="hlWa" name="No_WA" required inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx"><div class="invalid-feedback">Nomor WhatsApp tidak valid.</div></div>
+                <div class="row g-2 mb-3">
+                  <div class="col-sm-7"><label class="form-label" for="hlPaket">Paket Diminati</label><select class="form-select" id="hlPaket" name="Paket_Diminati"></select></div>
+                  <div class="col-sm-5"><label class="form-label" for="hlRencana">Rencana Berangkat</label><select class="form-select" id="hlRencana" name="Rencana_Keberangkatan"></select></div>
+                </div>
+                <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+                <button class="btn btn-wa btn-lg w-100" type="submit"><i class="bi bi-whatsapp"></i> Kirim & Lanjut ke WhatsApp</button>
+                <p class="small text-muted text-center mt-2 mb-0"><i class="bi bi-lock"></i> Data Anda aman & hanya digunakan oleh CS resmi kami.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layanan -->
+      <div class="section">
+        <div class="container-xl">
+          <div class="section-head">
+            <span class="eyebrow">Layanan Kami</span>
+            <h2>Pilihan Program Ibadah</h2>
+          </div>
+          <div class="row g-3 g-lg-4">
+            <div class="col-lg-4"><div class="service service-a"><span class="pill pill-glass">Kuota Resmi & Mujamalah</span><h3>Haji Khusus & Furoda</h3><p>Masa tunggu lebih singkat, hotel bintang 5, tenda AC VIP di Mina & Arafah.</p><button class="btn btn-light btn-sm" onclick="go('katalog',{jenisGroup:'Haji'})">Lihat Paket Haji <i class="bi bi-arrow-right"></i></button></div></div>
+            <div class="col-lg-4"><div class="service service-b"><span class="pill pill-glass">Pasti Jadwal</span><h3>Umrah Reguler</h3><p>9–15 hari dengan penerbangan langsung dan muthawwif berpengalaman.</p><button class="btn btn-light btn-sm" onclick="go('katalog',{jenis:'Umrah Reguler'})">Lihat Paket Umrah <i class="bi bi-arrow-right"></i></button></div></div>
+            <div class="col-lg-4"><div class="service service-c"><span class="pill pill-glass">Wisata Religi</span><h3>Umrah Plus Turki & Dubai</h3><p>Ibadah sekaligus menapak jejak peradaban Islam di Istanbul dan Abu Dhabi.</p><button class="btn btn-light btn-sm" onclick="go('katalog',{jenis:'Umrah Plus'})">Lihat Umrah Plus <i class="bi bi-arrow-right"></i></button></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dokumentasi video (otomatis tersembunyi jika belum ada video) -->
+      <div class="section section-dark" id="homeVideoSection" hidden>
+        <div class="container-xl">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-5">
+              <span class="eyebrow eyebrow-light"><i class="bi bi-camera-reels"></i> Dokumentasi Keberangkatan Nyata</span>
+              <h2 class="text-white mt-2">Saksikan Suasana Perjalanan Jamaah Kami</h2>
+              <p class="text-white-75">Mulai dari pelepasan di bandara, ibadah di Masjidil Haram, hingga ziarah di Madinah — inilah momen nyata para tamu Allah bersama kami.</p>
+              <div class="row g-2 mb-3">
+                <div class="col-6"><div class="vstat"><b class="tnum" data-cfg="Statistik_Jumlah_Jamaah"></b><small>Jamaah diberangkatkan</small></div></div>
+                <div class="col-6"><div class="vstat"><b class="tnum" id="videoCount">0</b><small>Video dokumentasi</small></div></div>
+              </div>
+              <button class="btn btn-light" onclick="go('dokumentasi')"><i class="bi bi-collection-play"></i> Lihat Semua Dokumentasi</button>
+            </div>
+            <div class="col-lg-7"><div class="vplayer" id="vp_home"></div></div>
+          </div>
+          <div class="row g-2 g-md-3 mt-2" id="homeVideoThumbs"></div>
+        </div>
+      </div>
+
+      <!-- Testimoni -->
+      <div class="section section-tint">
+        <div class="container-xl">
+          <div class="section-head">
+            <span class="eyebrow">Kata Jamaah</span>
+            <h2>Kisah Syahdu Para Tamu Allah</h2>
+            <p>Pengalaman nyata jamaah yang telah menunaikan ibadah bersama kami.</p>
+          </div>
+          <div class="row g-3 g-lg-4" id="homeTesti"></div>
+          <div class="text-center mt-3"><button class="btn btn-outline-brand" onclick="go('testimoni')">Semua Testimoni <i class="bi bi-arrow-right"></i></button></div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="section">
+        <div class="container-xl narrow">
+          <div class="section-head">
+            <span class="eyebrow">Pusat Informasi</span>
+            <h2>Pertanyaan yang Sering Diajukan</h2>
+          </div>
+          <div id="homeFaq"></div>
+          <div class="text-center mt-3"><button class="btn btn-outline-brand" onclick="go('faq')">Lihat Semua FAQ <i class="bi bi-arrow-right"></i></button></div>
+        </div>
+      </div>
+
+      <!-- Artikel -->
+      <div class="section section-tint">
+        <div class="container-xl">
+          <div class="section-head section-head-row">
+            <div><span class="eyebrow">Edukasi & Literasi Jamaah</span><h2>Artikel & Panduan Manasik</h2></div>
+            <button class="btn btn-outline-brand btn-sm" onclick="go('blog')">Semua Artikel <i class="bi bi-arrow-right"></i></button>
+          </div>
+          <div class="row g-3 g-lg-4" id="homeBlog"></div>
+        </div>
+      </div>
+
+      <!-- Pusat bantuan & kantor -->
+      <div class="section" id="kontak">
+        <div class="container-xl">
+          <div class="section-head">
+            <span class="eyebrow">Layanan Respons Cepat</span>
+            <h2>Pusat Bantuan & Lokasi Kantor</h2>
+          </div>
+          <div class="row g-3 g-lg-4">
+            <div class="col-lg-7"><div class="row g-3" id="csCards"></div></div>
+            <div class="col-lg-5">
+              <div class="card-x h-100">
+                <span class="pill pill-blue mb-2"><i class="bi bi-geo-alt"></i> Kantor Pusat</span>
+                <p class="mb-2 fw-semibold" data-cfg="Alamat"></p>
+                <p class="mb-1 small text-muted"><i class="bi bi-clock"></i> <span data-cfg="Jam_Operasional"></span></p>
+                <p class="mb-1 small text-muted"><i class="bi bi-envelope"></i> <span data-cfg="Email_Kontak"></span></p>
+                <p class="mb-3 small text-muted"><i class="bi bi-telephone"></i> <span data-cfg="Telepon"></span></p>
+                <a class="btn btn-outline-brand btn-sm" id="mapsBtn" target="_blank" rel="noopener" href="javascript:void(0)"><i class="bi bi-map"></i> Petunjuk Arah</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA akhir -->
+      <div class="section section-dark text-center">
+        <div class="container-xl narrow">
+          <span class="eyebrow eyebrow-light">Rencanakan Perjalanan Ibadah Anda Sekarang</span>
+          <h2 class="text-white mt-2">Siap Melangkah Menuju Baitullah?</h2>
+          <p class="text-white-75">Dapatkan konsultasi rencana tanggal, simulasi biaya kamar, dan booklet panduan manasik gratis dari tim kami.</p>
+          <button class="btn btn-wa btn-lg" onclick="openLead('', 'CTA Bawah')"><i class="bi bi-whatsapp"></i> Hubungi Konsultan Kami</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: KATALOG ─────────────── -->
+    <section class="page" id="page-katalog">
+      <div class="page-hero">
+        <div class="container-xl">
+          <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / <span id="katalogCrumb">Katalog Paket</span></div>
+          <h1 id="katalogTitle">Katalog Lengkap Paket Umrah & Haji</h1>
+          <p>Pilihan paket transparan dengan kepastian jadwal, hotel dekat pelataran Haramain, dan bimbingan manasik lengkap.</p>
+        </div>
+      </div>
+      <div class="container-xl">
+        <div class="filter-panel">
+          <div class="search-input mb-3">
+            <i class="bi bi-search"></i>
+            <input type="search" id="fQ" class="form-control" placeholder="Cari hotel, maskapai, atau nama paket…" oninput="onFilterChange()" aria-label="Cari paket">
+          </div>
+          <div class="row g-2">
+            <div class="col-6 col-lg"><label class="form-label" for="fJenis">Jenis Paket</label><select id="fJenis" class="form-select" onchange="onFilterChange()"></select></div>
+            <div class="col-6 col-lg"><label class="form-label" for="fBulan">Bulan Berangkat</label><select id="fBulan" class="form-select" onchange="onFilterChange()"></select></div>
+            <div class="col-6 col-lg"><label class="form-label" for="fMaskapai">Maskapai</label><select id="fMaskapai" class="form-select" onchange="onFilterChange()"></select></div>
+            <div class="col-6 col-lg"><label class="form-label" for="fKota">Kota Keberangkatan</label><select id="fKota" class="form-select" onchange="onFilterChange()"></select></div>
+          </div>
+          <div class="d-flex flex-wrap align-items-center gap-2 mt-3" id="activeChips"></div>
+        </div>
+
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 my-3">
+          <p class="mb-0 fw-semibold" id="katalogCount">-</p>
+          <div class="d-flex align-items-center gap-2">
+            <label class="small text-muted" for="fSort">Urutkan</label>
+            <select id="fSort" class="form-select form-select-sm w-auto" onchange="onFilterChange()">
+              <option value="date">Jadwal Terdekat</option>
+              <option value="price">Harga Termurah</option>
+              <option value="seat">Sisa Kursi Terbanyak</option>
+            </select>
+          </div>
+        </div>
+        <div class="row g-3 g-lg-4 pb-5" id="katalogGrid"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: DETAIL PAKET ─────────────── -->
+    <section class="page" id="page-detail"><div id="detailWrap"></div></section>
+
+    <!-- ─────────────── HALAMAN: JADWAL ─────────────── -->
+    <section class="page" id="page-jadwal">
+      <div class="page-hero">
+        <div class="container-xl">
+          <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / Jadwal Keberangkatan</div>
+          <h1>Jadwal Keberangkatan Umrah & Haji</h1>
+          <p>Pilih kepastian jadwal dengan status kuota transparan, maskapai berjadwal, dan akomodasi yang terkonfirmasi.</p>
+        </div>
+      </div>
+      <div class="container-xl pb-5">
+        <div class="filter-panel">
+          <div class="row g-2 align-items-end">
+            <div class="col-lg-6"><div class="search-input"><i class="bi bi-search"></i><input type="search" id="jQ" class="form-control" placeholder="Cari paket, hotel, maskapai…" oninput="renderJadwalTable()" aria-label="Cari jadwal"></div></div>
+            <div class="col-6 col-lg-3"><select id="jJenis" class="form-select" onchange="renderJadwalTable()" aria-label="Filter jenis"></select></div>
+            <div class="col-6 col-lg-3"><select id="jStatus" class="form-select" onchange="renderJadwalTable()" aria-label="Filter status kursi">
+              <option value="">Semua Status Kursi</option><option value="tersedia">Tersedia</option><option value="terbatas">Kursi Terbatas</option><option value="penuh">Penuh / Waiting List</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="card-x p-0 overflow-hidden mt-3"><div class="table-wrap"><table class="table-x" id="jadwalTable"></table></div></div>
+        <p class="small text-muted mt-2"><i class="bi bi-info-circle"></i> Harga yang tertera adalah harga kamar Quad (isi 4). Klik judul kolom untuk mengurutkan.</p>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: DOKUMENTASI VIDEO ─────────────── -->
+    <section class="page" id="page-dokumentasi">
+      <div class="page-hero"><div class="container-xl">
+        <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / Dokumentasi</div>
+        <h1>Dokumentasi Keberangkatan Jamaah</h1><p>Momen nyata perjalanan ibadah bersama kami — dari manasik, keberangkatan, hingga di Tanah Suci.</p>
+      </div></div>
+      <div class="container-xl pb-5">
+        <div class="vplayer vplayer-page" id="vp_page"></div>
+        <div class="d-flex flex-wrap gap-2 my-4" id="videoCats"></div>
+        <div class="row g-3 g-lg-4" id="videoGrid"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: TESTIMONI ─────────────── -->
+    <section class="page" id="page-testimoni">
+      <div class="page-hero"><div class="container-xl">
+        <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / Testimoni</div>
+        <h1>Testimoni Jamaah</h1><p>Cerita dan pengalaman spiritual jamaah yang telah berangkat bersama kami.</p>
+      </div></div>
+      <div class="container-xl pb-5"><div class="row g-3 g-lg-4" id="testiGrid"></div></div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: FAQ ─────────────── -->
+    <section class="page" id="page-faq">
+      <div class="page-hero"><div class="container-xl">
+        <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / FAQ</div>
+        <h1>Pertanyaan Seputar Umrah & Haji</h1><p>Informasi pendaftaran, pembayaran, dan ketentuan layanan.</p>
+      </div></div>
+      <div class="container-xl narrow pb-5">
+        <div class="search-input mb-3"><i class="bi bi-search"></i><input type="search" id="faqQ" class="form-control" placeholder="Cari pertanyaan…" oninput="renderFaqPage()" aria-label="Cari FAQ"></div>
+        <div id="faqPage"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: BLOG ─────────────── -->
+    <section class="page" id="page-blog">
+      <div class="page-hero"><div class="container-xl">
+        <div class="crumb"><a href="javascript:void(0)" onclick="go('home')"><i class="bi bi-house"></i> Beranda</a> / Artikel</div>
+        <h1>Artikel & Panduan Ibadah</h1><p>Bekal ilmu untuk perjalanan ibadah yang lebih khusyuk.</p>
+      </div></div>
+      <div class="container-xl pb-5">
+        <div class="d-flex flex-wrap gap-2 mb-3" id="blogCats"></div>
+        <div class="row g-3 g-lg-4" id="blogGrid"></div>
+      </div>
+    </section>
+
+    <!-- ─────────────── HALAMAN: DETAIL ARTIKEL ─────────────── -->
+    <section class="page" id="page-artikel"><div id="artikelWrap"></div></section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container-xl">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="brand brand-light mb-3"><span class="brand-mark" id="brandMarkFooter"><i class="bi bi-moon-stars-fill"></i></span><span class="brand-text"><b data-cfg="Nama_Perusahaan">PT. Safar Wisata Madina</b><small>Umrah & Haji Khusus</small></span></div>
+          <p class="small">Penyelenggara Perjalanan Ibadah Umrah & Haji Khusus berizin resmi Kementerian Agama RI. Melayani dhuyufurrahman dengan amanah dan bimbingan sesuai sunnah.</p>
+          <p class="small mb-1"><i class="bi bi-geo-alt"></i> <span data-cfg="Alamat"></span></p>
+          <p class="small mb-1"><i class="bi bi-patch-check"></i> Izin PPIU No. <span class="tnum" data-cfg="Nomor_PPIU"></span></p>
+          <div class="socials mt-3" id="socials"></div>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4>Layanan</h4>
+          <a href="javascript:void(0)" onclick="go('katalog',{jenis:'Umrah Reguler'})">Umrah Reguler</a>
+          <a href="javascript:void(0)" onclick="go('katalog',{jenis:'Umrah Plus'})">Umrah Plus</a>
+          <a href="javascript:void(0)" onclick="go('katalog',{jenisGroup:'Haji'})">Haji Khusus / Furoda</a>
+          <a href="javascript:void(0)" onclick="go('jadwal')">Jadwal Keberangkatan</a>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h4>Informasi</h4>
+          <a href="javascript:void(0)" onclick="go('faq')">FAQ</a>
+          <a href="javascript:void(0)" onclick="go('blog')">Artikel</a>
+          <a href="javascript:void(0)" onclick="go('testimoni')">Testimoni</a>
+          <a href="javascript:void(0)" onclick="go('dokumentasi')">Dokumentasi Video</a>
+          <a href="javascript:void(0)" onclick="go('home','kontak')">Hubungi Kami</a>
+        </div>
+        <div class="col-lg-4">
+          <h4>Akreditasi & Legalitas</h4>
+          <div class="d-flex flex-wrap gap-2 mb-3">
+            <span class="pill pill-glass">KEMENAG RI</span><span class="pill pill-glass">SISKOPATUH</span><span class="pill pill-glass">IATA</span>
+          </div>
+          <span class="pill pill-emerald-solid"><i class="bi bi-shield-check"></i> 100% Kepastian Berangkat</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> <span data-cfg="Nama_Perusahaan">PT. Safar Wisata Madina</span>. Hak cipta dilindungi.</span>
+        <a href="javascript:void(0)" onclick="openAdmin()">Internal Staff</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Widget WhatsApp melayang -->
+  <div class="wa-float">
+    <div class="wa-panel" id="waPanel" role="dialog" aria-label="Chat dengan kami">
+      <div class="wa-panel-head"><i class="bi bi-whatsapp"></i> <div><b>Chat Dengan Kami</b><small>Biasanya membalas dalam hitungan menit</small></div>
+        <button class="icon-btn icon-btn-light ms-auto" onclick="toggleWaPanel(false)" aria-label="Tutup"><i class="bi bi-x-lg"></i></button></div>
+      <div class="wa-panel-body" id="waPanelBody"></div>
+    </div>
+    <button class="wa-fab" onclick="toggleWaPanel()" aria-label="Buka chat WhatsApp"><i class="bi bi-whatsapp"></i></button>
+  </div>
+
+  <!-- Notifikasi konsultasi terbaru (social proof dari data nyata) -->
+  <div class="proof-toast" id="proofToast" aria-live="polite"></div>
+</div>
+
+<!-- ═══════════════════════════ PANEL ADMIN ═══════════════════════════ -->
+<div id="adminApp" hidden>
+
+  <!-- Login -->
+  <div class="login-screen" id="adminLogin">
+    <div class="login-card">
+      <div class="text-center mb-4">
+        <span class="brand-mark brand-mark-lg mx-auto mb-2"><i class="bi bi-person-lock"></i></span>
+        <h1 class="h4 fw-bold mb-1">Portal Admin</h1>
+        <p class="text-muted small mb-0">Kelola paket, jadwal, lead, dan konten website</p>
+      </div>
+      <form id="loginForm" onsubmit="handleLogin(event)" novalidate>
+        <div class="mb-3"><label class="form-label" for="lgEmail">Email Admin</label><input type="email" class="form-control" id="lgEmail" required autocomplete="username"></div>
+        <div class="mb-3"><label class="form-label" for="lgPin">PIN</label><input type="password" class="form-control tnum" id="lgPin" required inputmode="numeric" autocomplete="current-password" minlength="6"></div>
+        <button class="btn btn-brand w-100" type="submit"><i class="bi bi-box-arrow-in-right"></i> Masuk</button>
+      </form>
+      <button class="btn btn-link w-100 mt-2" onclick="closeAdmin()"><i class="bi bi-arrow-left"></i> Kembali ke Website</button>
+    </div>
+  </div>
+
+  <!-- Layout admin -->
+  <div class="admin-layout" id="adminLayout" hidden>
+    <aside class="admin-side" id="adminSide">
+      <div class="admin-brand"><span class="brand-mark"><i class="bi bi-moon-stars-fill"></i></span><div><b>Madina Admin</b><small>Portal Manifest & PPIU</small></div></div>
+      <div class="side-label">Navigasi Operasional</div>
+      <nav class="side-nav" aria-label="Menu admin">
+        <a href="javascript:void(0)" data-anav="dashboard" onclick="adminGo('dashboard')"><i class="bi bi-grid-1x2"></i> Ringkasan</a>
+        <a href="javascript:void(0)" data-anav="lead" onclick="adminGo('lead')"><i class="bi bi-chat-dots"></i> Lead Konsultasi <span class="badge-count" id="newLeadBadge" hidden>0</span></a>
+        <a href="javascript:void(0)" data-anav="paket" onclick="adminGo('paket')"><i class="bi bi-airplane"></i> Paket & Jadwal</a>
+        <a href="javascript:void(0)" data-anav="testimoni" onclick="adminGo('testimoni')"><i class="bi bi-chat-quote"></i> Testimoni</a>
+        <a href="javascript:void(0)" data-anav="artikel" onclick="adminGo('artikel')"><i class="bi bi-journal-text"></i> Artikel</a>
+        <a href="javascript:void(0)" data-anav="video" onclick="adminGo('video')"><i class="bi bi-camera-reels"></i> Video Dokumentasi</a>
+        <a href="javascript:void(0)" data-anav="faq" onclick="adminGo('faq')"><i class="bi bi-question-circle"></i> FAQ</a>
+        <a href="javascript:void(0)" data-anav="pengaturan" onclick="adminGo('pengaturan')"><i class="bi bi-gear"></i> Pengaturan</a>
+      </nav>
+      <div class="side-foot">
+        <div class="me"><span class="avatar" id="meAvatar">A</span><div><b id="meName">Admin</b><small id="meEmail">-</small></div></div>
+        <button class="btn btn-ghost btn-sm w-100 mb-2" onclick="closeAdmin()"><i class="bi bi-box-arrow-up-right"></i> Lihat Website</button>
+        <button class="btn btn-outline-danger btn-sm w-100" onclick="handleLogout()"><i class="bi bi-box-arrow-left"></i> Keluar</button>
+      </div>
+    </aside>
+    <div class="admin-backdrop" id="adminBackdrop" onclick="toggleAdminSide(false)"></div>
+
+    <div class="admin-main">
+      <header class="admin-top">
+        <button class="icon-btn d-lg-none" onclick="toggleAdminSide(true)" aria-label="Buka menu admin"><i class="bi bi-list"></i></button>
+        <div class="crumb-admin"><i class="bi bi-layout-sidebar"></i> ADMIN / <b id="adminTitle">Ringkasan</b></div>
+        <span class="pill pill-emerald d-none d-md-inline-flex" id="syncPill"><span class="dot"></span> Tersinkron Google Sheets</span>
+        <div class="ms-auto d-flex align-items-center gap-2">
+          <span class="small text-muted tnum d-none d-sm-inline" id="clock"></span>
+          <button class="icon-btn" onclick="refreshAdmin(true)" aria-label="Muat ulang data"><i class="bi bi-arrow-clockwise"></i></button>
+          <button class="icon-btn" onclick="toggleTheme()" aria-label="Ganti tema"><i class="bi bi-moon"></i></button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <section class="apage active" id="apage-dashboard"></section>
+        <section class="apage" id="apage-lead"></section>
+        <section class="apage" id="apage-paket"></section>
+        <section class="apage" id="apage-testimoni"></section>
+        <section class="apage" id="apage-artikel"></section>
+        <section class="apage" id="apage-video"></section>
+        <section class="apage" id="apage-faq"></section>
+        <section class="apage" id="apage-pengaturan"></section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════ MODAL & TOAST ═══════════════════════════ -->
+
+<!-- Modal Konsultasi (lead) -->
+<div class="modal fade" id="leadModal" tabindex="-1" aria-labelledby="leadModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <form class="modal-content" id="leadModalForm" onsubmit="submitLeadForm(event, this, null)" novalidate>
+      <div class="modal-header border-0 pb-0">
+        <div><span class="pill pill-wa"><i class="bi bi-whatsapp"></i> Konsultasi Gratis</span><h2 class="h5 fw-bold mt-2 mb-0" id="leadModalTitle">Konsultasi dengan CS Resmi</h2></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3"><label class="form-label" for="lmNama">Nama Lengkap *</label><input class="form-control" id="lmNama" name="Nama" required minlength="2" maxlength="80" autocomplete="name"><div class="invalid-feedback">Nama wajib diisi.</div></div>
+        <div class="mb-3"><label class="form-label" for="lmWa">Nomor WhatsApp *</label><input class="form-control tnum" id="lmWa" name="No_WA" required inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx"><div class="invalid-feedback">Nomor WhatsApp tidak valid.</div></div>
+        <div class="mb-3"><label class="form-label" for="lmPaket">Paket Diminati</label><select class="form-select" id="lmPaket" name="Paket_Diminati"></select></div>
+        <div class="mb-1"><label class="form-label" for="lmRencana">Rencana Berangkat</label><select class="form-select" id="lmRencana" name="Rencana_Keberangkatan"></select></div>
+        <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="Sumber_Halaman" id="lmSumber">
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button class="btn btn-wa btn-lg w-100" type="submit"><i class="bi bi-whatsapp"></i> Lanjut ke WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Form Admin (generik) -->
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="formModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+    <form class="modal-content" id="formModalForm" onsubmit="submitAdminForm(event)" novalidate>
+      <div class="modal-header"><h2 class="h5 fw-bold mb-0" id="formModalTitle">Form</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button></div>
+      <div class="modal-body"><div class="row g-3" id="formModalBody"></div></div>
+      <div class="modal-footer"><button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Batal</button><button type="submit" class="btn btn-brand"><i class="bi bi-check2"></i> Simpan</button></div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal Konfirmasi -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-body text-center p-4">
+        <span class="confirm-ic"><i class="bi bi-exclamation-triangle"></i></span>
+        <h2 class="h6 fw-bold mt-3" id="confirmTitle">Yakin?</h2>
+        <p class="small text-muted mb-0" id="confirmText"></p>
+      </div>
+      <div class="modal-footer border-0 pt-0 justify-content-center">
+        <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-danger" id="confirmOk">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Preview (gambar) -->
+<div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header"><h2 class="h6 fw-bold mb-0" id="previewTitle">Pratinjau</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button></div>
+      <div class="modal-body text-center" id="previewBody"></div>
+      <div class="modal-footer"><button type="button" class="btn btn-ghost" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i> Tutup</button><a class="btn btn-brand" id="previewDownload" target="_blank" rel="noopener" href="javascript:void(0)"><i class="bi bi-download"></i> Unduh</a></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="js/api.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/admin.js" defer></script>
+</body>
+</html>
