@@ -6,4 +6,4 @@
  * ganti teks di antara tanda petik pada baris GAS_URL di bawah.
  * Kosongkan ('') untuk kembali ke MODE DEMO.
  */
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbzcDrtvGG1uaM_ciTttS-0iu3tGQLr99dd-607z86GFmjO4vG-dDBoa99OjI2Rf7S2F/exec';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbw_9UpgiwkNkU5_4wKjxRoIjfuGVdUQEH0A6BRVX41a4OssZwVmQocbc8bYQCVjebA9Eg/exec';

@@ -1,4 +1,4 @@
-/* Data contoh untuk MODE DEMO (dipakai hanya jika GAS_URL kosong). Aman dihapus setelah website tersambung ke GAS. */
+/* Data contoh untuk MODE DEMO (dipakai hanya jika GAS_URL kosong). */
 window.DEMO_DATA = {
  "version": "1.0.0",
  "config": {
@@ -21,7 +21,7 @@ window.DEMO_DATA = {
   "Statistik_Kepuasan": "98%",
   "Social_Proof_Aktif": "Tidak",
   "Instagram": "https://instagram.com/x",
-  "Hero_Video_URL": "https://youtu.be/dQw4w9WgXcQ",
+  "Hero_Video_URL": "",
   "Teks_Berjalan": "Akreditasi A | PPIU No. 07032300544950005 | Terverifikasi SISKOPATUH"
  },
  "paket": [
@@ -252,55 +252,6 @@ window.DEMO_DATA = {
    "Urutan_Tampil": 3
   }
  ],
- "video": [
-  {
-   "ID": "v1",
-   "Judul": "Keberangkatan Umrah Barakah — Bandara Soekarno-Hatta",
-   "Kategori": "Keberangkatan",
-   "Video_URL": "https://youtu.be/aaaaaaaaaaa",
-   "Thumbnail_URL": "",
-   "Deskripsi": "Pelepasan jamaah grup Desember.",
-   "Tanggal": "2026-10-20",
-   "Urutan_Tampil": 1,
-   "Unggulan": "Ya",
-   "Status_Tampil": "Tampil"
-  },
-  {
-   "ID": "v2",
-   "Judul": "Manasik Akbar Jamaah 1448 H",
-   "Kategori": "Manasik",
-   "Video_URL": "https://www.youtube.com/shorts/bbbbbbbbbbb",
-   "Thumbnail_URL": "",
-   "Deskripsi": "",
-   "Tanggal": "2026-10-01",
-   "Urutan_Tampil": 2,
-   "Unggulan": "Tidak",
-   "Status_Tampil": "Tampil"
-  },
-  {
-   "ID": "v3",
-   "Judul": "Suasana Raudhah Madinah",
-   "Kategori": "Di Tanah Suci",
-   "Video_URL": "https://youtube.com/watch?v=ccccccccccc",
-   "Thumbnail_URL": "",
-   "Deskripsi": "",
-   "Tanggal": "2026-09-01",
-   "Urutan_Tampil": 3,
-   "Unggulan": "Tidak",
-   "Status_Tampil": "Tampil"
-  },
-  {
-   "ID": "v4",
-   "Judul": "Video file mp4",
-   "Kategori": "Keberangkatan",
-   "Video_URL": "https://example.com/a.mp4",
-   "Thumbnail_URL": "",
-   "Deskripsi": "",
-   "Tanggal": "2026-08-01",
-   "Urutan_Tampil": 4,
-   "Unggulan": "Tidak",
-   "Status_Tampil": "Tampil"
-  }
- ],
+ "video": [],
  "socialProof": []
 };
